@@ -36,7 +36,7 @@ int main( int argc, char* args[] )
 
 
     		string polecenie = "./" + nazwa_programu_gracza + " " + mapa + " " + status + " " + rozkazy;
-			
+
     		if (limit_czasowy > 0) 
 			{
         		polecenie += " " + std::to_string(limit_czasowy);

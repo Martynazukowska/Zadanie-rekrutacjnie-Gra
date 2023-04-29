@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include "../inc/mapa.hpp"
+
 
 using namespace std;
 
@@ -12,5 +14,9 @@ int main(int argc, char *argv[])
         cout << argv[i] << " ";
     }
     cout << std::endl;
+
+    //Inicjalizacja Mapy
+    plansza Mapa("../pliki/"+ string(argv[1]));
+    Mapa.wypisz_plansze();
     return 0;
 }
