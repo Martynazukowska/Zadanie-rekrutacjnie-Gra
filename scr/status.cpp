@@ -1,11 +1,8 @@
 #include "../inc/status.hpp"
 #include <fstream>
+#include <sstream>
 
-/**
- * \brief Konstruktor statusu rozgrywki, wczytuje stan planszy z pliku
- * \param plik ścieżka do pliku z danymi planszy
- * \throws std::runtime_error jeśli nie uda się otworzyć pliku
- */
+
 Status::Status(const string& plik)
 {                          
     ifstream file(plik);   
@@ -18,10 +15,10 @@ Status::Status(const string& plik)
 
         while (getline(file, line)) {
             // przetwarzanie linii
-            int spacja = line.find(" ");
-            string wartosc_1 = line.substr(0, spacja);          //przynależność jednostki
-            string wartosc_2 = line.substr(spacja + 1);
-            Jednostka pom(wartosc_1);
+            istringstream iss(line);
+            string wartosc_1,wartosc_2,wartosc_3,wartosc_4,wartosc_5,wartosc_6;
+            iss >> wartosc_1 >> wartosc_2 >> wartosc_3 >> wartosc_4 >> wartosc_5 >> wartosc_6;
+            Jednostka pom(wartosc_1,wartosc_2);
             jednostki.push_back(pom);
             
         }
@@ -40,5 +37,9 @@ Status::Status(const string& plik)
 void Status::wypisz()
 {
     cout<<zloto<<"\n";
-    jednostki[0].wypisz();
+    jednostki[1].wypisz();
+    cout<<"\n";
+    jednostki[2].wypisz();
+    cout<<"\n";
+    jednostki[3].wypisz();
 }

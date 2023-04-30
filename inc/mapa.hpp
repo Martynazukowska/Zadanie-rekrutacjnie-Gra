@@ -25,7 +25,6 @@ class plansza
         char board[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa */
 
     public:
-        public:
         /**
         * \brief Konstruktor planszy rozgrywki przy pomocy podanego pliku
          * \param plik nazwa pliku z planszą do odczytu

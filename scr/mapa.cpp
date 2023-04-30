@@ -1,11 +1,8 @@
 #include "../inc/mapa.hpp"
 #include <fstream>
 
-/**
- * \brief Konstruktor planszy rozgrywki, wczytuje stan planszy z pliku
- * \param plik ścieżka do pliku z danymi planszy
- * \throws std::runtime_error jeśli nie uda się otworzyć pliku
- */
+
+
 plansza::plansza(const string& plik)
 {                          
     ifstream file(plik);   
@@ -29,9 +26,7 @@ plansza::plansza(const string& plik)
     }
 }
 
-/**
- * \brief Funkcja wypisująca elementy planszy.
- */
+
 void plansza::wypisz_plansze() 
 {
     cout << "Plansza gry:" << std::endl;

@@ -18,10 +18,11 @@ int main(int argc, char *argv[])
 
     //Inicjalizacja Mapy
     plansza Mapa("../pliki/"+ string(argv[1]));
-    Mapa.wypisz_plansze();
+    //Mapa.wypisz_plansze();
 
     //Inicjalizacja Statusu
     Status status("../pliki/"+ string(argv[2]));
     status.wypisz();
+    cout<<"\n";
     return 0;
 }
