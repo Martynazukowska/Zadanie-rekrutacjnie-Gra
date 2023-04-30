@@ -23,6 +23,5 @@ int main(int argc, char *argv[])
     //Inicjalizacja Statusu
     Status status("../pliki/"+ string(argv[2]));
     status.wypisz();
-    cout<<"\n";
     return 0;
 }

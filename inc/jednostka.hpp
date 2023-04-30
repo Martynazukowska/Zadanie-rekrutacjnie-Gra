@@ -29,7 +29,6 @@ struct Typ {
     * \param typ Obiekt typu jednostki, którego wartości pól mają być wypisane.
     * \return Strumień wyjściowy z wypisanymi wartościami pól typu jednostki.
     */
-
     friend std::ostream& operator<<(std::ostream& os, const Typ& typ)
     {
         os << "Wytrzymałość: " << typ.wytrzymalosc << std::endl;
