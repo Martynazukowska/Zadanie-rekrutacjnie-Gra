@@ -22,7 +22,7 @@ using namespace std;
 class plansza
 {
     private:
-        char board[ROZMIAR_Y][ROZMIAR_X];
+        char board[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa */
 
     public:
         public:

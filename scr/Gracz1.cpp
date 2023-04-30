@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include "../inc/mapa.hpp"
+#include "../inc/status.hpp"
 
 
 using namespace std;
@@ -18,5 +19,9 @@ int main(int argc, char *argv[])
     //Inicjalizacja Mapy
     plansza Mapa("../pliki/"+ string(argv[1]));
     Mapa.wypisz_plansze();
+
+    //Inicjalizacja Statusu
+    Status status("../pliki/"+ string(argv[2]));
+    status.wypisz();
     return 0;
 }

@@ -11,7 +11,7 @@ set(CMAKE_CXX_STANDARD 17)
 add_executable(myprogram scr/main.cpp)
 
 # Dodanie źródeł programu gracz1 i mapa
-add_executable(gracz1 scr/Gracz1.cpp scr/mapa.cpp)
+add_executable(gracz1 scr/Gracz1.cpp scr/mapa.cpp scr/status.cpp scr/jednostka.cpp)
 target_include_directories(gracz1 PRIVATE scr) # Dodanie katalogu scr do include
 
 

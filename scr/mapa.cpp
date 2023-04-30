@@ -23,7 +23,7 @@ plansza::plansza(const string& plik)
     } 
     else 
     {
-        cerr << "Nie udało się otworzyć pliku." << endl;
+        cerr << "Nie udało się otworzyć pliku mapy." << endl;
         exit(1);
         
     }
@@ -39,7 +39,7 @@ void plansza::wypisz_plansze()
     {
         for (int j = 0; j < ROZMIAR_X; j++) 
         {
-            cout << board[i][j] << " ";
+            cout << board[i][j] << " "; 
         }
         cout << endl;
     }
