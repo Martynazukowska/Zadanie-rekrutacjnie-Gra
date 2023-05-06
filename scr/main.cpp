@@ -13,14 +13,16 @@ int main( int argc, char* args[] )
 	int wybor;
 
 	cin>>wybor;
-	
 
-
-	switch (wybor)
+	if(wybor!=0&&wybor!=1)
 	{
-		case 1:
-		{
-			cout<<" Zaczynajmy zabawe\n";
+		cerr<<"Nie znam takiej wartości :(\n";
+		return 1;
+	}
+
+	while(wybor)
+	{
+		cout<<" Zaczynajmy zabawe\n";
 			//Zainicjowanie Programu Gracza
 			string nazwa_programu_gracza,mapa,status,rozkazy;
     		int limit_czasowy = 1000;                               // opcjonalny limit czasowy w milisekundach
@@ -51,14 +53,10 @@ int main( int argc, char* args[] )
         		cerr << "Błąd uruchamiania programu gracza1" << std::endl;
         		return 1;
     		}
-			break;
-		}
-	
-		case 0:
-		{	
-			//Koniec programu
-			return 0;
-			break;
-		}
 	}
+	
+
+	//Koniec programu
+	return 1;
+	
 }

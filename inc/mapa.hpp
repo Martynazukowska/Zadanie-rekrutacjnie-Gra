@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include "jednostka.hpp"
+
 #define ROZMIAR_X 32
 #define ROZMIAR_Y 5
 
@@ -23,6 +25,7 @@ class plansza
 {
     private:
         char board[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa */
+        char board1[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa poczatkowa */
 
     public:
         /**
@@ -47,6 +50,19 @@ class plansza
         * \return liczba wymaganych znaków w rzędzie
         */
         int  getiloscrzedow() const {return ROZMIAR_X;} 
+
+        /**
+        * \brief Getter który zwróci wskaźnik na początek tablicy board w klasie plansza
+        */
+        char* get_board();
+
+
+        void UPDATE(vector<Jednostka> jednostki);
+
+        bool czy_puste(int x,int y);
+
+        void czytaj(const string& plik);
+
 
 };
 
