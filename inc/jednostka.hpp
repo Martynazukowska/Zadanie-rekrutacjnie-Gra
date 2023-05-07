@@ -84,33 +84,88 @@ class Jednostka
         * \brief Funkcja dodająca produkt do bazy 
         * \param product jednostka produkowana przez bazę (K/S/A/P/C/R/W) Lub 0 gdy nic nie produkuje.
         */
-        void dodaj_produkt(string Product); 
+        void dodaj_produkt(string Product);
 
+        /**
+        * \brief Getter dla nazy typu jednostki
+        * \return typ
+        */
         char  get_typ() const {return TYP;} 
-
+        
+        /**
+        * \brief Getter dla nazy produktu jednostki
+        * \return nazwan produktu
+        */
         char  get_produkt() {return czy_produkt;} 
 
+        /**
+        * \brief Getter dla typu jednostki
+        * \return typ
+        */
         Typ  get_caly_typ() const {return typ;} 
 
+        /**
+        * \brief Getter dla przynależności jednostki
+        * \return przynależność
+        */
         string get_przynaleznosc() const { return przynaleznosc;}
 
+        /**
+        * \brief Getter dla ID jednostki
+        * \return ID
+        */
         int  get_ID() const {return ID;} 
 
+        /**
+        * \brief Getter dla położenia
+        * \return położenie X jednostki
+        */
         int  get_X() const {return X;} 
 
+        /**
+        * \brief Getter dla położenia
+        * \return położenie Y jednostki
+        */
         int  get_Y() const {return Y;}
-        
+
+        /**
+        * \brief Getter dla pozostałej wytrzymałości jednostki
+        * \return wytrzymałość
+        */
         int  get_zycie() const {return wytrzymałość;} 
 
+        /**
+        * \brief Getter dla typu produkowanej jednostki
+        * \return typ
+        */
         Typ  get_caly_produkt() const {return produkt;} 
 
-
+        /**
+         * \brief Aktualizuje poziom wytrzymałości jednostki 
+         * poprzez zmniejszenie jej wartości o wartość obrażenia.
+         * \param wartość Wartość, o którą zostanie zmniejszona wartość wytrzymałości jednostki.
+        */
         void  Update_zycia(int wartosc);
 
-
-
+        /**
+         * \brief Wypisuje informacje na temat jednostki lub bazy.
+         * Funkcja ta wypisuje na standardowe wyjście informacje na temat 
+         * jednostki lub bazy, takie jak przynależność, typ, identyfikator, 
+         * położenie oraz wytrzymałość. W przypadku, gdy jednostka jest bazą, 
+         * wypisuje również informacje o produkcie przechowywanym w bazie. 
+         * Funkcja jest pomocna podczas debugowania i testowania programu.
+        */
         void wypisz();
 
+
+        /**
+         * \brief Ustawia nowe położenie jednostki.
+         * Funkcja ta ustawia nowe położenie jednostki, przyjmując jako argumenty dwie wartości 
+         * liczbowe reprezentujące koordynaty x i y. Położenie jednostki jest reprezentowane p
+         * rzez zmienne X i Y obiektu klasy Jednostka.
+         * \param x Wartość liczbowa reprezentująca koordynatę x nowego położenia jednostki.
+         * \param y Wartość liczbowa reprezentująca koordynatę y nowego położenia jednostki.
+        */
         void Nowe_polozenie(int x, int y);
 
 };

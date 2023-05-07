@@ -6,6 +6,18 @@
 
 using namespace std;
 
+/**
+* \brief Funcja rzetwarza plik tekstowy zawierający rozkazy i wykonuje odpowiednie akcje na mapie gry
+* Funkcja Rozkazy przetwarza plik tekstowy zawierający rozkazy i wykonuje odpowiednie akcje na mapie gry.
+* \param status_R Referencja do obiektu klasy Status, przechowującego aktualny stan gry
+* \param mapa_R Referencja do obiektu klasy plansza, przechowującego mapę gry
+* \param plik Nazwa pliku tekstowego zawierającego rozkazy
+*
+* \return void
+* \note Funkcja wywołuje funkcję exit z kodem 0 lub 1 w przypadku wystąpienia błędów
+*
+*/
+
 void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik)
 {
     ifstream file(plik); 
@@ -136,8 +148,10 @@ int main(int argc, char *argv[])
     Status status("../pliki/"+ string(argv[2]));
     //status.wypisz(2);
 
+    //Wczytywanie rozkazów 
     Rozdkazy(status,Mapa,"../pliki/"+ string(argv[3]));
 
+    //Zapisz nowy status gry do pliku
     status.zapisz("../pliki/"+ string(argv[2]));
 
 
@@ -145,5 +159,5 @@ int main(int argc, char *argv[])
 
 
 
-    return 1;
+    return 0;
 }

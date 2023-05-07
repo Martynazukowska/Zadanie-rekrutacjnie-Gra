@@ -20,10 +20,11 @@ int main( int argc, char* args[] )
 		return 1;
 	}
 
+	cout<<" Zaczynajmy zabawe\n";
+
 	while(wybor)
 	{
-		cout<<" Zaczynajmy zabawe\n";
-			//Zainicjowanie Programu Gracza
+			//Zainicjowanie Programu Gracza 1
 			string nazwa_programu_gracza,mapa,status,rozkazy;
     		int limit_czasowy = 1000;                               // opcjonalny limit czasowy w milisekundach
 
@@ -44,8 +45,31 @@ int main( int argc, char* args[] )
         		polecenie += " " + std::to_string(limit_czasowy);
     		}
 
-			//Uruchomienie programu gracza
+			//Uruchomienie programu gracza1
     		int status_wyjscia = system(polecenie.c_str());
+
+			//Zainicjowanie Programu Gracza 2
+			string nazwa_programu_gracza2;
+
+			cout<<"Podaj nazwę programu Gracza 2: ";
+			cin>>nazwa_programu_gracza2;
+			cout<<"Podaj plik z mapą: ";
+			cin>>mapa;
+			cout<<"Podaj plik ze statusem gry: ";
+			cin>>status;
+			cout<<"Podaj plik z rozkazami dla Gracza 2: ";
+			cin>>rozkazy;
+
+
+    		string polecenie2 = "./" + nazwa_programu_gracza2 + " " + mapa + " " + status + " " + rozkazy;
+
+    		if (limit_czasowy > 0) 
+			{
+        		polecenie2 += " " + std::to_string(limit_czasowy);
+    		}
+
+			//Uruchomienie programu gracza
+    		status_wyjscia = system(polecenie2.c_str());
 
 			//Jeśli pojawią się błedy przy uruchomieniu programu gracza1
     		if (status_wyjscia != 0) 

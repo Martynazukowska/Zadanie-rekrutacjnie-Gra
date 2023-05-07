@@ -56,11 +56,34 @@ class plansza
         */
         char* get_board();
 
-
+        /**
+         * \brief Aktualizuje planszę gry zgodnie z położeniem jednostek.
+         * Funnkcja ta aktualizuje planszę gry na podstawie położenia jednostek przekazanych 
+         * jako argument.Najpierw kopiowane są zawartości planszy pomocniczej do planszy 
+         * głównej, a następnie dla każdej jednostki prawdzane jest, czy jej pozycja na planszy 
+         * jest pusta. Jeśli tak, jej typ jest umieszczany na planszy. W przeciwnym przypadku, f
+         * unkcja wyświetla komunikat o błędzie.
+         * \param jednostki Wektor zawierający jednostki, których położenie ma zostać uwzględnione na planszy.
+        */
         void UPDATE(vector<Jednostka> jednostki);
 
+        /**
+         * \brief Sprawdza, czy pole o podanych współrzędnych jest puste.
+         * Funkcja ta sprawdza, czy pole o podanych współrzędnych jest puste. 
+         * Jeśli na tym polu nie ma żadnej jednostki ani bazy,
+         * funkcja zwraca wartość true. W przeciwnym przypadku, funkcja zwraca wartość false.
+         * \param x Współrzędna X pola, które ma zostać sprawdzone.
+         * \param y Współrzędna Y pola, które ma zostać sprawdzone.
+         * \return true, jeśli pole jest puste; false, jeśli pole jest zajęte przez jednostkę lub bazę.
+         * */
         bool czy_puste(int x,int y);
 
+        /**
+         * \brief Wczytuje planszę z pliku.
+         * Funkcja ta wczytuje planszę z pliku o nazwie podanej jako parametr. Wczytane dane zostają
+         *  zapisane w macierzy board w obiekcie klasy plansza.
+         * \param plik Nazwa pliku, z którego mają zostać wczytane dane planszy.
+        */
         void czytaj(const string& plik);
 
 
