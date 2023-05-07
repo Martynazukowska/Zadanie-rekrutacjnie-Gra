@@ -3,7 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 
-#include "status.hpp"
+#include "../inc/status.hpp"
 
 
 using namespace std;
@@ -30,21 +30,23 @@ int main( int argc, char* args[] )
 
 	cout<<"Podaj nazwę programu Gracza 1: ";
 	cin>>nazwa_programu_gracza;
+	cout<<"Podaj plik z mapą: ";
+	cin>>mapa;
+	cout<<"Podaj plik ze statusem gry: ";
+	cin>>status;
 
 	int runda=0;
+	string gracz;
 
 	while(wybor)
 	{
 			cout<<"Gracza 1: \n";
-			cout<<"Podaj plik z mapą: ";
-			cin>>mapa;
-			cout<<"Podaj plik ze statusem gry: ";
-			cin>>status;
 			cout<<"Podaj plik z rozkazami dla Gracza 1: ";
 			cin>>rozkazy;
 
+			gracz="N";
 
-    		string polecenie = "./" + nazwa_programu_gracza + " " + mapa + " " + status + " " + rozkazy;
+    		string polecenie = "./" + nazwa_programu_gracza + " " + mapa + " " + status + " " + rozkazy+" "+gracz;
 
     		if (limit_czasowy > 0) 
 			{
@@ -55,15 +57,13 @@ int main( int argc, char* args[] )
     		int status_wyjscia = system(polecenie.c_str());
 
 			cout<<"Gracza 2: \n";
-			cout<<"Podaj plik z mapą: ";
-			cin>>mapa;
-			cout<<"Podaj plik ze statusem gry: ";
-			cin>>status;
 			cout<<"Podaj plik z rozkazami dla Gracza 2: ";
 			cin>>rozkazy;
 
+			gracz="E";
 
-    		string polecenie2 = "./" + nazwa_programu_gracza + " " + mapa + " " + status + " " + rozkazy;
+
+    		string polecenie2 = "./" + nazwa_programu_gracza + " " + mapa + " " + status + " " + rozkazy+" "+gracz;
 
     		if (limit_czasowy > 0) 
 			{

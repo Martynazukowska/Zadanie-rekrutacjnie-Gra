@@ -8,7 +8,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
 set(CMAKE_CXX_STANDARD 17)
 
 # Dodanie źródeł programu i utworzenie pliku wykonywalnego
-add_executable(myprogram scr/main.cpp)
+add_executable(myprogram scr/main.cpp  scr/mapa.cpp scr/status.cpp scr/jednostka.cpp )
 
 # Dodanie źródeł programu gracz1 i mapa
 add_executable(gracz1 scr/Gracz1.cpp scr/mapa.cpp scr/status.cpp scr/jednostka.cpp )
