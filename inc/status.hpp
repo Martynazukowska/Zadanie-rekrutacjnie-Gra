@@ -106,9 +106,17 @@ class Status
          * komunikat i kończy działanie programu.
          * \param Mapa Obiekt klasy plansza, na której odbywa się gra
          * \param budowa Obiekt klasy Budowanie, reprezentujący budowe
-         * \return void
         */
         void UWAGA(plansza Mapa, Budowanie budowanie);
+
+        /**
+         * \brief Funkcja służąca do dodania odpowiedniej jednostki po jej wybudowaniu. Elinująca 
+         * odpowiednio koszt. 
+         * \param
+         * 
+         * \note Nie użyta z powodu problemów przy zapisywaniu czasu tworzenia jednostki
+        */
+        void Dodaj_Jednostke(string kto, string jaka, int identyfikator, int x, int y);
 
 };
 

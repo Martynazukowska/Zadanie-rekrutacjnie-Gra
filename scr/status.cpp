@@ -131,8 +131,6 @@ void Status::UWAGA(plansza Mapa,Move move)
         exit(0);
     }
 
-    cout<<"!!!!!!!UUUUUUWAAAAAGAAAAA:        "<<jednostki[2].get_X()<<" "<<jednostki[2].get_Y();
-
 
 }
 
@@ -231,8 +229,23 @@ void Status::UWAGA(plansza Mapa,Budowanie budowa)
     }
     string pom=budowa.get_nazwa_jednostki();
     jednostki[pom_id-1].dodaj_produkt(pom);
-    
-    
+}
 
 
+void Status::Dodaj_Jednostke(string kto, string jaka, int identyfikator, int x, int y)
+{
+    map<string, int> rodzaje = {
+        {"K", {70}},       /**< Typ Knight*/
+        {"S", {60}},       /**< Typ Swordsman*/
+        {"A", {40}},       /**< Typ Archer*/
+        {"P", {50}},       /**< Typ Pikeman*/
+        {"R", {90}},       /**< Typ Ram*/
+        {"C", {50}},       /**< Typ Catapult*/
+        {"W", {20}},       /**< Typ Worker*/
+        {"B", {200}}        /**< Typ Baza*/
+    };
+
+    int wytrzyma = rodzaje[jaka];            // Przypisanie Wytrzymałości
+    Jednostka nowa(kto,jaka,identyfikator,x,y,wytrzyma);
+    jednostki.push_back(nowa);
 }

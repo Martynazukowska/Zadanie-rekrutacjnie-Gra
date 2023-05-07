@@ -48,6 +48,7 @@ void Jednostka::dodaj_produkt(string Product)
         };
         produkt=rodzaje[Product];
         czas=produkt.czas_budowania;
+
     }
 }
 
@@ -75,6 +76,7 @@ void Jednostka::Update_zycia(int wartość)
 {
     wytrzymałość=wytrzymałość-wartość;
 }
+
 
 
 
