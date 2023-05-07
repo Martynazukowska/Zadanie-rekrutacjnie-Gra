@@ -18,7 +18,7 @@ using namespace std;
 *
 */
 
-void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik)
+void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik,string kto)
 {
     ifstream file(plik); 
 
@@ -62,7 +62,7 @@ void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik)
                 int id_A;
                 iss>>id_A;
                 Atak atak(ID,'A',id_A);
-                status_R.UWAGA(mapa_R,atak);
+                status_R.UWAGA(mapa_R,atak,kto);
 
             }
             else if(nazwa=="B")                   //Build
@@ -149,7 +149,7 @@ int main(int argc, char *argv[])
     //status.wypisz(2);
 
     //Wczytywanie rozkazów 
-    Rozdkazy(status,Mapa,"../pliki/"+ string(argv[3]));
+    Rozdkazy(status,Mapa,"../pliki/"+ string(argv[3]),string(argv[4]));
 
     //Zapisz nowy status gry do pliku
     status.zapisz("../pliki/"+ string(argv[2]));

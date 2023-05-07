@@ -134,7 +134,7 @@ void Status::UWAGA(plansza Mapa,Move move)
 
 }
 
-void Status::UWAGA(plansza Mapa,Atak atak)
+void Status::UWAGA(plansza Mapa,Atak atak,string kto)
 {
     int pom_id,pom_id_przeciwnika;
     pom_id=Czy_ID_występuje(atak.get_ID());                 //Sprawdź czy twoja jednosta istanieje
@@ -150,7 +150,7 @@ void Status::UWAGA(plansza Mapa,Atak atak)
         cerr<<"Atakowany nie istanieje \n";
         exit(1);
     }
-    if(jednostki[pom_id_przeciwnika-1].get_przynaleznosc()=="P")
+    if(jednostki[pom_id_przeciwnika-1].get_przynaleznosc()==kto)            //Sprawdz przynależnosć
     {
         cerr<<"Wykonałeś ataku na własną jednostkę\n";
         exit(1);

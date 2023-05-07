@@ -95,8 +95,9 @@ class Status
          * i wyświetli ją na ekranie.
          * \param Mapa Obiekt typu plansza, reprezentujący planszę gry.
          * \param atak Obiekt typu Atak, reprezentujący atak jednostki na inną jednostkę
+         * \param kto Flaga gracza
          **/
-        void UWAGA(plansza Mapa, Atak atak);
+        void UWAGA(plansza Mapa, Atak atak,string kto);
 
 
         /**
