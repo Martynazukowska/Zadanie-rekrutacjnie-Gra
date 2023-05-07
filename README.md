@@ -16,7 +16,7 @@ Program prosi o podanie odpowiednio
 * pliku gdzie znajduje się status gry 
 * pliki z rozkazami
 
-##Program
+## Program
 *Pobierz
 *Stwórz folder build
 *cmake ..
