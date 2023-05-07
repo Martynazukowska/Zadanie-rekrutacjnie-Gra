@@ -17,8 +17,8 @@ Program prosi o podanie odpowiednio
 * pliki z rozkazami
 
 ## Program
-*Pobierz
-*Stwórz folder build
-*cmake ..
-*make
-*./myprogram
+* Pobierz
+* Stwórz folder build
+* cmake ..
+* make
+* ./myprogram
