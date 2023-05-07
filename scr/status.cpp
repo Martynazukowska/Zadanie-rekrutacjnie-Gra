@@ -150,6 +150,11 @@ void Status::UWAGA(plansza Mapa,Atak atak)
         cerr<<"Atakowany nie istanieje \n";
         exit(1);
     }
+    if(jednostki[pom_id_przeciwnika-1].get_przynaleznosc()=="P")
+    {
+        cerr<<"Wykonałeś ataku na własną jednostkę\n";
+        exit(1);
+    }
 
     int zasieg=jednostki[pom_id-1].get_caly_typ().zasieg;
 
@@ -228,6 +233,24 @@ void Status::UWAGA(plansza Mapa,Budowanie budowa)
         exit(0);
     }
     string pom=budowa.get_nazwa_jednostki();
+
+    map<string, int> cena = {
+        {"K", {400}},       /**< Typ Knight*/
+        {"S", {250}},       /**< Typ Swordsman*/
+        {"A", {250}},       /**< Typ Archer*/
+        {"P", {200}},       /**< Typ Pikeman*/
+        {"R", {500}},       /**< Typ Ram*/
+        {"C", {800}},       /**< Typ Catapult*/
+        {"W", {100}},       /**< Typ Worker*/
+    };
+
+
+    zloto=zloto-cena[pom];
+    if(zloto<0)
+    {
+        cerr<<"Nie możesz dokonać takiego zakupu\n";
+        exit(1);
+    }
     jednostki[pom_id-1].dodaj_produkt(pom);
 }
 

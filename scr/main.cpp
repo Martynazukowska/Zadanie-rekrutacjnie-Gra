@@ -3,6 +3,8 @@
 #include <iostream>
 #include <cstdlib>
 
+#include "status.hpp"
+
 
 using namespace std;
 
@@ -28,6 +30,8 @@ int main( int argc, char* args[] )
 
 	cout<<"Podaj nazwę programu Gracza 1: ";
 	cin>>nazwa_programu_gracza;
+
+	int runda=0;
 
 	while(wybor)
 	{
@@ -75,7 +79,43 @@ int main( int argc, char* args[] )
         		cerr << "Błąd uruchamiania programu gracza1" << std::endl;
         		return 1;
     		}
+
+			if(runda>=1000)
+			{
+				wybor=0;
+			}
 	}
+
+	Status koncowy(status);					// wczytywanie końcowego statusu
+	int gracz1=0;
+	int gracz2=0;
+
+	//zliczanie jednostek
+	for (int i = 0; i < koncowy.get_jednostki().size(); i++)
+	{
+		if(koncowy.get_jednostki()[i].get_przynaleznosc()=="P")
+		{
+			gracz2++;					// jeśli jednostka nalezy do gracza 2
+		}
+		else if(koncowy.get_jednostki()[i].get_przynaleznosc()=="E")
+		{
+			gracz1++;					// jeśli jednostka należy do gracza 1
+		}
+	}
+
+	if(gracz1>gracz2)
+	{
+		cout<<"Wygrywa gracz 1\n";
+	}
+	else if(gracz1<gracz2)
+	{
+		cout<<"Wygrywa gracz 2\n";
+	}
+	else
+	{
+		cout<<"Remis\n";
+	}
+
 	
 
 	//Koniec programu
