@@ -53,7 +53,7 @@ class plansza
         /**
         * \brief Getter który zwróci wskaźnik na początek tablicy board w klasie plansza
         */
-        char* get_board();
+        const vector<char>* get_board() const { return board.data(); }
 
         /**
          * \brief Aktualizuje planszę gry zgodnie z położeniem jednostek.
@@ -76,6 +76,12 @@ class plansza
          * \return true, jeśli pole jest puste; false, jeśli pole jest zajęte przez jednostkę lub bazę.
          * */
         bool czy_puste(int x,int y);
+
+        /**
+         * \brief Sprawdza, czy są jakyś pracownicy kopalnni.
+         * \return ilość, pracowników w kopalni
+         * */
+        int czy_kopie();
 
         /**
          * \brief Wczytuje planszę z pliku.

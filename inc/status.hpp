@@ -56,6 +56,12 @@ class Status
         * \return ilość dostępnego złota
         */
         int  get_zloto() const {return zloto;} 
+
+        /**
+        * \brief Funkcja które, powiększa złoto.
+        * \param ile wartość o którą należy zwiększyć złoto
+        */
+        void  dodaj_zloto(int ile); 
         
            
         /**

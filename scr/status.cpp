@@ -121,7 +121,11 @@ void Status::UWAGA(plansza Mapa,Move move)
         jednostki[pom_id-1].Nowe_polozenie(move.get_X(),move.get_Y());      //Zmień położenie wybranej jednostki
         Mapa.UPDATE(get_jednostki());                      //Zaaktualizuj mapę
     }
-
+    else if (Mapa.get_board()[move.get_Y()][move.get_X()]=='6'&&move.get_nazwa()=='W')
+    {
+        jednostki[pom_id-1].Nowe_polozenie(move.get_X(),move.get_Y());      //Zmień położenie wybranej jednostki
+        Mapa.UPDATE(get_jednostki());                                       //Zaaktualizuj mapę
+    }
     //Jeśli na mapie cos już coś jest w tym miejscu
     else
     {
@@ -267,4 +271,9 @@ void Status::Dodaj_Jednostke(string kto, string jaka, int identyfikator, int x, 
     int wytrzyma = rodzaje[jaka];            // Przypisanie Wytrzymałości
     Jednostka nowa(kto,jaka,identyfikator,x,y,wytrzyma);
     jednostki.push_back(nowa);
+}
+
+void  Status::dodaj_zloto(int ile)
+{
+    zloto=zloto+ile;
 }

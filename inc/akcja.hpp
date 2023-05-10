@@ -31,7 +31,7 @@ public:
     * \brief Getter dla nazwy.
     * \return nazwa bywranego rozkazu
     */
-    int  get_nazwa() const {return nazwa;} 
+    char  get_nazwa() const {return nazwa;} 
 
     /**
     * \brief Getter dla ID.

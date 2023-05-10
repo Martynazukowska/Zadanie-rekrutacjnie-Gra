@@ -106,6 +106,9 @@ int main(int argc, char *argv[])
     Status status("../pliki/"+ string(argv[2]));
     //status.wypisz(2);
 
+    status.dodaj_zloto(Mapa.czy_kopie());       //Dolicz dodatkowo złoto z kopalni
+    
+
     //Wczytywanie rozkazów 
     Rozdkazy(status,Mapa,"../pliki/"+ string(argv[3]),string(argv[4]));
 

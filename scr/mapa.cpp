@@ -132,6 +132,10 @@ void plansza:: UPDATE(vector<Jednostka> jednostki)
             {
                 board[jednostki[i].get_Y()][jednostki[i].get_X()]=jednostki[i].get_typ();
             }
+            else if (board[jednostki[i].get_Y()][jednostki[i].get_X()]=='6'&&jednostki[i].get_typ()=='W')
+            {
+                board[jednostki[i].get_Y()][jednostki[i].get_X()]=jednostki[i].get_typ();       //Gdy worker jest w kopalni
+            }
             else
             {
                 cerr <<"Błąd przy stawianiu jednostki, miejsce jest już zajęte\n";
@@ -148,4 +152,20 @@ bool plansza::czy_puste(int x,int y)
         return true;
     }
     return false;
+}
+
+int plansza::czy_kopie() 
+{
+    int pom=0;
+    for (int i = 0; i < rozmiar_y; i++) 
+    {
+        for (int j = 0; j < rozmiar_x; j++) 
+        {
+            if(board1[i][j]=='6'&&board[i][j]=='W')
+            {
+                pom++;
+            }
+        }
+    }  
+    return pom; 
 }
