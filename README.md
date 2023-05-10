@@ -15,3 +15,10 @@ Program prosi o podanie odpowiednio
 * pliku gdzie znajduje się mapa 
 * pliku gdzie znajduje się status gry 
 * pliki z rozkazami
+
+## Program
+* Pobierz
+* Stwórz folder build
+* cmake ..
+* make
+* ./myprogram
