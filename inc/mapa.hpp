@@ -21,12 +21,10 @@ using namespace std;
 class plansza
 {
     private:
-        // char board[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa */
-        // char board1[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa poczatkowa */
         vector<vector<char>> board;          /**< Mapa */
         vector<vector<char>> board1;          /**< Mapa poczatkowa */
-        int rozmiar_x;
-        int rozmiar_y;
+        int rozmiar_x;                        /**< Połozenie X */
+        int rozmiar_y;                        /**< Połozenie Y */
 
     public:
         /**

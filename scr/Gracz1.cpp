@@ -78,10 +78,6 @@ void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik,string kto)
                 exit(0);
             }
         }
-
-        //mapa_R.wypisz_plansze();
-        // cout<<"UUUUUUUUUUUUUUU:   "<<status_R.get_jednostki()[status_R.Czy_ID_występuje(13)].get_Y()<<"\n";
-        // mapa_R.UPDATE(status_R.get_jednostki());           //Zaktualizuj mapę
         file.close(); // zamknięcie pliku
     } 
     else 
@@ -90,45 +86,6 @@ void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik,string kto)
         exit(1);
         
     } 
-    // int ID;
-    // char nazwa;
-
-    // mapa_R.UPDATE(status_R.get_jednostki());   
-    // mapa_R.wypisz_plansze();
-
-    // cout<<"Czas na rozkazy: \n";
-    // cout<<"Podaj ID jednostki: ";
-    // cin>>ID;
-    // cout<<"\n";
-    // int pom=status_R.Czy_ID_występuje(ID);         
-    // status_R.get_jednostki()[pom-1].wypisz();
-
-    // cout<<"Podaj nazwę ruchu: ";
-    // cin>>nazwa;
-
-    // if(nazwa=='M')
-    // {
-    //     Move move(ID,nazwa);
-    //     move.wprowadz();
-    //     status_R.UWAGA(mapa_R,move);
-    // }
-    // else if(nazwa=='A')
-    // {
-    //     Atak atak(ID,nazwa);
-    //     atak.wprowadz();
-    //     status_R.UWAGA(mapa_R,atak);
-    // }
-    // else if(nazwa=='B')
-    // {
-    //     Budowanie budowa(ID,nazwa);
-    //     budowa.wprowadz();
-    //     status_R.UWAGA(mapa_R,budowa);
-    // }
-    // else
-    // {
-    //     cerr<<"Błąd w nazwie Rozkazu\n";
-    //     exit(0);
-    // }
 }
 
 int main(int argc, char *argv[]) 
@@ -154,9 +111,7 @@ int main(int argc, char *argv[])
 
     Mapa.UPDATE(status.get_jednostki());           //Zaktualizuj mapę
     Mapa.wypisz_plansze();
-   // cout<<"UUUUUUUUUUUUUUU:   "<<status.get_jednostki()[status.Czy_ID_występuje(13)].get_Y()<<"\n";
-   // Mapa.UPDATE(status.get_jednostki());           //Zaktualizuj mapę
-
+    
     //Zapisz nowy status gry do pliku
     status.zapisz("../pliki/"+ string(argv[2]));
 
