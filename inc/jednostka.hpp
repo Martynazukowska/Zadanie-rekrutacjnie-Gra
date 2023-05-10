@@ -19,7 +19,7 @@ struct Typ {
     int zasieg;                 //< Zasięg jednostki. */
     int czas_budowania;         //< Czas budowania jednostki. */
     bool czy_baza;              //< Czy jednostka jest bazą. */
-    char TYP;                   //< Typ w nazwie*/
+    char typ;                   //< Typ w nazwie*/
 
     /**
     * \brief Przeciążenie operatora << do wypisania wartości pól typu jednostki.
@@ -31,7 +31,7 @@ struct Typ {
     */
     friend std::ostream& operator<<(std::ostream& os, const Typ& typ)
     {
-        os << typ.TYP<<endl;
+        os << typ.typ<<endl;
         os << "Wytrzymałość: " << typ.wytrzymalosc << endl;
         os << "Prędkość: " << typ.predkosc << endl;
         os << "Koszt: " << typ.koszt << endl;
@@ -52,7 +52,7 @@ class Jednostka
     private:
         string przynaleznosc;       /**< info czy gracza, czy przeciwnika */
         Typ typ;                    /**< typ jednostki */
-        char TYP;                   /**< typ jednostki */
+        char Typ_J;                   /**< typ jednostki */
         int ID;                     /**< ID jednostki */
         int X;                      /**< Polożenie X jednostki */
         int Y;                      /**< Polożenie Y jednostki */
@@ -90,7 +90,7 @@ class Jednostka
         * \brief Getter dla nazy typu jednostki
         * \return typ
         */
-        char  get_typ() const {return TYP;} 
+        char  get_typ() const {return Typ_J;} 
         
         /**
         * \brief Getter dla nazy produktu jednostki

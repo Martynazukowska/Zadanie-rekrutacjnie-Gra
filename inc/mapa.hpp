@@ -5,9 +5,6 @@
 #include <vector>
 #include "jednostka.hpp"
 
-#define ROZMIAR_X 32
-#define ROZMIAR_Y 5
-
 using namespace std;
 
 /**
@@ -24,8 +21,12 @@ using namespace std;
 class plansza
 {
     private:
-        char board[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa */
-        char board1[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa poczatkowa */
+        // char board[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa */
+        // char board1[ROZMIAR_Y][ROZMIAR_X];   /**< Mapa poczatkowa */
+        vector<vector<char>> board;          /**< Mapa */
+        vector<vector<char>> board1;          /**< Mapa poczatkowa */
+        int rozmiar_x;
+        int rozmiar_y;
 
     public:
         /**
@@ -43,13 +44,13 @@ class plansza
         * \brief Getter dla rozmiaru planszy.
         * \return rozmiar planszy
         */
-        int  getrozmiar() const {return ROZMIAR_Y;} 
+        int  get_Y() const {return rozmiar_y;} 
 
         /**
         * \brief Getter dla liczby wymaganych znaków w rzędzie.
         * \return liczba wymaganych znaków w rzędzie
         */
-        int  getiloscrzedow() const {return ROZMIAR_X;} 
+        int  get_X() const {return rozmiar_x;} 
 
         /**
         * \brief Getter który zwróci wskaźnik na początek tablicy board w klasie plansza
@@ -85,6 +86,8 @@ class plansza
          * \param plik Nazwa pliku, z którego mają zostać wczytane dane planszy.
         */
         void czytaj(const string& plik);
+
+        void przypisz(char pom[]);
 
 
 };

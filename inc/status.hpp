@@ -12,8 +12,6 @@
 #include "mapa.hpp"
 #include "akcja.hpp"
 
-#define ROZMIAR_X 32
-#define ROZMIAR_Y 5
 
 using namespace std;
 

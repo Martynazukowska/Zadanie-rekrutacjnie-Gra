@@ -22,7 +22,7 @@ Jednostka::Jednostka(string kto, string jaka, int identyfikator, int x, int y,in
 
 
     typ = rodzaje[jaka];            // Przypisanie Typu jednostki
-    TYP=typ.TYP;
+    Typ_J=typ.typ;
     ID=identyfikator;               // Przypisanie ID jednostki
     X=x;                            // Przypisanie  polozenia x i y
     Y=y;

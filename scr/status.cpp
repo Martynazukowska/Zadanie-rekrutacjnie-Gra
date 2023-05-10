@@ -60,7 +60,7 @@ void Status::zapisz(const string& plik)
         outfile << liczba.get_przynaleznosc()<< " "<<liczba.get_typ()<<" "<<liczba.get_ID()<<" "<<liczba.get_X()<<" "<<liczba.get_Y()<<" "<<liczba.get_zycie();
         if(liczba.get_typ()=='B')
         {
-            outfile<<" "<<liczba.get_caly_produkt().TYP<<"\n";
+            outfile<<" "<<liczba.get_caly_produkt().typ<<"\n";
         }
         else
         {
@@ -100,7 +100,7 @@ int Status::Czy_ID_występuje(int id)
 
 void Status::UWAGA(plansza Mapa,Move move)
 {
-    Mapa.UPDATE(get_jednostki());                          //Zaaktualizuj mapę
+    Mapa.UPDATE(get_jednostki());                           //Zaaktualizuj mapę
     int pom_id;
     pom_id=Czy_ID_występuje(move.get_ID());                 //Sprawdź czy taka jednosta istanieje
     if(pom_id==0)
@@ -115,13 +115,11 @@ void Status::UWAGA(plansza Mapa,Move move)
         cerr<<"Nie możesz zrobić takiego ruchu tą jednostka";
         exit(1);
     }
-    
-    Mapa.UPDATE(get_jednostki());                          //Zaaktualizuj mapę
+    Mapa.UPDATE(get_jednostki());                           //Zaaktualizuj mapę
     if(Mapa.czy_puste(move.get_X(),move.get_Y()))
     {
         jednostki[pom_id-1].Nowe_polozenie(move.get_X(),move.get_Y());      //Zmień położenie wybranej jednostki
         Mapa.UPDATE(get_jednostki());                      //Zaaktualizuj mapę
-        Mapa.wypisz_plansze();
     }
 
     //Jeśli na mapie cos już coś jest w tym miejscu
@@ -173,8 +171,8 @@ void Status::UWAGA(plansza Mapa,Atak atak,string kto)
                             {10,10,10,10,10,10,10,50},
                             {5,5,5,5,5,5,5,1}};
 
-    char atakujacy = jednostki[pom_id-1].get_caly_typ().TYP;
-    char atakowany = jednostki[pom_id_przeciwnika-1].get_caly_typ().TYP;
+    char atakujacy = jednostki[pom_id-1].get_caly_typ().typ;
+    char atakowany = jednostki[pom_id_przeciwnika-1].get_caly_typ().typ;
 
     map<char, int> rodzaje = {
         {'K', {0}},       /**< Typ Knight*/
@@ -202,7 +200,7 @@ void Status::UWAGA(plansza Mapa,Atak atak,string kto)
      
      if(jednostki[pom_id_przeciwnika-1].get_zycie()<=0)
      {
-        if(jednostki[pom_id_przeciwnika].get_caly_typ().TYP=='B')
+        if(jednostki[pom_id_przeciwnika].get_caly_typ().typ=='B')
         {
             cout<<"\n";
             cout<<"WYGRANA !!!!!!";
@@ -213,13 +211,11 @@ void Status::UWAGA(plansza Mapa,Atak atak,string kto)
 
      }
     Mapa.UPDATE(get_jednostki());                          //Zaaktualizuj mapę
-    Mapa.wypisz_plansze();
 
 }
 
 void Status::UWAGA(plansza Mapa,Budowanie budowa)
 {
-    Mapa.UPDATE(get_jednostki());                          //Zaaktualizuj mapę
     int pom_id;
     pom_id=Czy_ID_występuje(budowa.get_ID());                 //Sprawdź czy taka jednosta istanieje
     if(pom_id==0)
@@ -227,7 +223,7 @@ void Status::UWAGA(plansza Mapa,Budowanie budowa)
         cerr<<"Nie ma takiej jednostki\n";
         exit(1);
     }
-    if(jednostki[pom_id-1].get_caly_typ().TYP!='B')          //Sprawdz czy jednostka jest Bazą
+    if(jednostki[pom_id-1].get_caly_typ().typ!='B')          //Sprawdz czy jednostka jest Bazą
     {
         cerr<<"Jednosta wybrana do budowania nie jest Baza.      Koniec działań.\n";
         exit(0);

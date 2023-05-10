@@ -23,11 +23,11 @@ void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik,string kto)
     ifstream file(plik); 
 
     mapa_R.UPDATE(status_R.get_jednostki());           //Zaktualizuj mapę
+    mapa_R.wypisz_plansze();                           
 
     if (file.is_open()) // sprawdzenie, czy plik został otwarty
     { 
         string line;
-        getline(file, line);
 
         //vector<Akcja> ruch;                   //Przyszły wektor wszystkich rozkazów
 
@@ -48,7 +48,7 @@ void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik,string kto)
             {
                 int X,Y;
                 iss>>X>>Y;
-                if(X>=ROZMIAR_X||Y>=ROZMIAR_Y)
+                if(X>=mapa_R.get_X()||Y>=mapa_R.get_Y())
                 {
                     cerr<<"Wyszedłeś poza mapę\n";
                     exit(0);
@@ -79,8 +79,9 @@ void Rozdkazy(Status &status_R, plansza &mapa_R, const string& plik,string kto)
             }
         }
 
-        mapa_R.wypisz_plansze();
-
+        //mapa_R.wypisz_plansze();
+        // cout<<"UUUUUUUUUUUUUUU:   "<<status_R.get_jednostki()[status_R.Czy_ID_występuje(13)].get_Y()<<"\n";
+        // mapa_R.UPDATE(status_R.get_jednostki());           //Zaktualizuj mapę
         file.close(); // zamknięcie pliku
     } 
     else 
@@ -142,7 +143,7 @@ int main(int argc, char *argv[])
 
     //Inicjalizacja Mapy
     plansza Mapa("../pliki/"+ string(argv[1]));
-    //Mapa.wypisz_plansze();
+
 
     //Inicjalizacja Statusu
     Status status("../pliki/"+ string(argv[2]));
@@ -151,11 +152,13 @@ int main(int argc, char *argv[])
     //Wczytywanie rozkazów 
     Rozdkazy(status,Mapa,"../pliki/"+ string(argv[3]),string(argv[4]));
 
+    Mapa.UPDATE(status.get_jednostki());           //Zaktualizuj mapę
+    Mapa.wypisz_plansze();
+   // cout<<"UUUUUUUUUUUUUUU:   "<<status.get_jednostki()[status.Czy_ID_występuje(13)].get_Y()<<"\n";
+   // Mapa.UPDATE(status.get_jednostki());           //Zaktualizuj mapę
+
     //Zapisz nowy status gry do pliku
     status.zapisz("../pliki/"+ string(argv[2]));
-
-
-
 
 
 
