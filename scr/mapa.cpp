@@ -11,12 +11,12 @@ void plansza::przypisz(char pom[])
     {
         wektor.push_back(pom[i]);
     }
-    board.push_back(wektor);
-    board1.push_back(wektor);
+    board.push_back(wektor);            //stan mapy
+    board1.push_back(wektor);           //mapa poczatkowa
     
 }
 
-void plansza::czytaj(const string& plik/*,char**&mapa_pom,int& rzad,int&kolumna*/)
+void plansza::czytaj(const string& plik)
 {
     ifstream file(plik);   
 
@@ -27,65 +27,37 @@ void plansza::czytaj(const string& plik/*,char**&mapa_pom,int& rzad,int&kolumna*
         
     }
     
+    //Zcztanie wartości plik w formie string
     vector<string> mapa_data;
     string linia;
     while (getline(file,linia))
     {
         mapa_data.push_back(linia);
     }
-    
+
+    // Obliczenie rozmiaru planszy
     int rzad=mapa_data.size();
     int kolumna=(rzad>0)?mapa_data[0].size():0;
     rozmiar_x=kolumna;
     rozmiar_y=rzad;
-    int len,index=0;
-    
 
+    // Przypisanie znaków planszy do wektora `board`
+    int len,index=0;
     for(const auto& rzad:mapa_data)
     {
-        cout<<rzad<<endl;
+        //przejście ze stringa na char
         len = rzad.length();
         char char_array[len+1];
         strcpy(char_array, rzad.c_str());
         przypisz(char_array);
         index++;
     }
-
-    // cout<<"UUUUUUUUUUUUUUUUUUUUUUUUUUU\n";
-    // for (int i = 0; i < rzad; i++)
-    // {
-    //     for (int j = 0; j < kolumna; j++)
-    //     {
-    //         cout<<board[i][j]<<" ";
-    //     }
-    //     cout<<"\n";
-    // }
     
 }
 
 
 plansza::plansza(const string& plik)
 {                          
-    // ifstream file(plik);   
-
-    // if (file.is_open()) // sprawdzenie, czy plik został otwarty
-    // { 
-    //     for (int i = 0; i < ROZMIAR_Y; i++) 
-    //     {
-    //         for (int j = 0; j < ROZMIAR_X; j++) {
-    //             file >> board1[i][j]; // odczyt wartości z pliku i zapisanie do macierzy
-    //             board[i][j]=board1[i][j];
-    //         }
-    //     }
-
-    //     file.close(); // zamknięcie pliku
-    // }
-    // else 
-    // {
-    //     cerr << "Nie udało się otworzyć pliku mapy." << endl;
-    //     exit(1);
-        
-    // }
     ifstream file(plik);   
 
     if (file.is_open()) 
@@ -98,16 +70,19 @@ plansza::plansza(const string& plik)
             mapa_data.push_back(linia);
         }
     
+        // Obliczenie rozmiaru planszy
         int rzad=mapa_data.size();
         int kolumna=(rzad>0)?mapa_data[0].size():0;
-        int len,index=0;
-
         rozmiar_x=kolumna;
         rozmiar_y=rzad;
     
 
+        // Przypisanie znaków planszy do wektora `board`
+        int len,index=0;
+
         for(const auto& rzad:mapa_data)
         {
+            //przejście ze stringa na char
             len = rzad.length();
             char char_array[len+1];
             strcpy(char_array, rzad.c_str());
@@ -122,16 +97,6 @@ plansza::plansza(const string& plik)
         cerr << "Nie udało się otworzyć pliku mapy." << endl;
         exit(1);
     }
-
-    // cout<<"UUUUUUUUUUUUUUUUUUUUUUUUUUU\n";
-    // for (int i = 0; i < rzad; i++)
-    // {
-    //     for (int j = 0; j < kolumna; j++)
-    //     {
-    //         cout<<board[i][j]<<" ";
-    //     }
-    //     cout<<"\n";
-    // }
     
 }
 

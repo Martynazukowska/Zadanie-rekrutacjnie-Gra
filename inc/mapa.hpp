@@ -85,6 +85,13 @@ class plansza
         */
         void czytaj(const string& plik);
 
+        /**
+         * \brief Funkcja przypisuje tablicę znaków do planszy gry.
+         * Funkcja ta przepisuje zawartość tablicy `pom` do wektora `board`, 
+         * który reprezentuje planszę gry. Tablica ta zawiera znaki, z których 
+         * każdy oznacza pole planszy. Po przypisaniu plansza jest gotowa do użycia w grze.
+         * \param pom Tablica znaków zawierająca zawartość planszy do przypisania.
+        */
         void przypisz(char pom[]);
 
 
